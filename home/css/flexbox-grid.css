@@ -1,39 +1,61 @@
 body {
-  background-color: black;
+  background-color: #0d1117; /* dark background */
   margin: 0;
   padding: 20px;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c9d1d9; /* default readable text */
 }
 
 h1 {
-  color: white;
+  color: #ffffff;
   text-align: center;
   font-family: "Garamond", "Georgia", serif;
   letter-spacing: 2px;
   text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
+/* GRID CONTAINER */
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: black;
+  background-color: transparent;
   padding: 10px;
-  gap: 15px;
+  gap: 20px;
 }
 
+/* CONTENT BOXES */
 .container div {
-  background-color: #1c51b3;
-  border: 2px solid white;
-  color: white;
-  padding: 15px;
-  font-size: 18px;
-  text-align: center;
+  background-color: #161b22; /* GitHub card color */
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 20px;
+  font-size: 16px;
+  text-align: left;
+  border-radius: 8px;
+  line-height: 1.6;
 }
 
+/* HEADINGS INSIDE BOXES */
+.container h2,
+.container h3 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+/* LISTS */
+.container ul {
+  padding-left: 20px;
+}
+
+.container li {
+  margin-bottom: 6px;
+}
+
+/* IMAGES */
 img {
-  width: 100%;
+  width: 80px;
   height: auto;
   display: block;
+  margin: 20px auto;
 }
-
-
