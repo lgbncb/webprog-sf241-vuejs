@@ -3,6 +3,13 @@
   <food-item/>
   <food-item/>
   <food-item/>
+  <food-item/>
+  <food-item/>
+  <food-item/>
+  <food-item/>
+  <food-item/>
+  <food-item/>
+  <food-item/>
 </template>
  
 <script></script>
@@ -13,6 +20,6 @@
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: orange;
+    background-color: Red;
   }
 </style>

@@ -9,8 +9,8 @@
 export default {
   data() {
     return {
-      name: 'Melon',
-      message: 'I like Melons'
+      name: 'Chicken Spaghetti, Large Coke Zero, Large Fries',
+      message: 'I love ordering these in Jollibee'
     }
   }
 };
