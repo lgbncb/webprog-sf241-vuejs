@@ -1,5 +1,5 @@
 <template>
-  <div class="Chicken Spaghetti">
+  <div class="Sinigang">
     <h2>{{ name }}</h2>
     <p>{{ message }}</p>
   </div>
@@ -9,19 +9,19 @@
 export default {
   data() {
     return {
-      name: 'Chicken Spaghetti, Large Coke Zero, Large Fries',
-      message: 'I love ordering these in Jollibee'
+      name: 'Sinigang, Fried Tilapia, Coke Zero',
+      message: 'Favorite Sunday Lunch Meal'
     }
   }
 };
 </script>
  
 <style>
-  #app > div {
+    #app > div {
     border: dashed black 1px;
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: light red;
+    background-color: light yellow;
   }
 </style>
