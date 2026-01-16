@@ -1,5 +1,5 @@
 <template>
-  <div  class="sinigang">
+  <div class="sinigang">
     <h2>{{ name }}</h2>
     <p>{{ message }}</p>
   </div>
@@ -22,6 +22,7 @@ export default {
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: lightgreen;
-  }  
+    background-color: rgba(212, 170, 78, 0.38);
+  }
+
 </style>
