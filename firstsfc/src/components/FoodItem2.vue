@@ -1,5 +1,5 @@
 <template>
-  <div class="Sinigang">
+  <div class="sinigang">
     <h2>{{ name }}</h2>
     <p>{{ message }}</p>
   </div>
@@ -17,11 +17,11 @@ export default {
 </script>
  
 <style>
-  .Sinigang { 
+  .sinigang {
     border: dashed black 1px;
     display: inline-block;
     margin: 10px;
     padding: 10px;
-    background-color: light yellow;
-  }
+    background-color: lightgreen;
+  } 
 </style>
