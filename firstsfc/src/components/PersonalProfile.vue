@@ -196,10 +196,65 @@ nav ul li a:hover { color: #E50914; }
 .modal button { position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
 
 /* CONTACT */
-.contact-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.contact-container { padding: 60px; background: rgba(0,0,0,0.6); border-radius: 12px; position: relative; z-index: 1; text-align: center; }
-.email-btn { display: inline-block; background: white; color: #141414; padding: 16px 40px; border-radius: 8px; font-weight: bold; text-decoration: none; margin-bottom: 20px; }
+#contact { 
+  position: relative; 
+  min-height: 60vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  overflow: hidden; 
+  padding: 40px 20px;
+}
 
+.contact-video-bg { 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  min-width: 100%; 
+  min-height: 100%; 
+  width: auto; 
+  height: auto; 
+  z-index: -1; 
+  transform: translate(-50%, -50%); 
+  object-fit: cover; 
+}
+
+.contact-container { 
+  padding: 40px; 
+  background: rgba(0, 0, 0, 0.7); 
+  border-radius: 12px; 
+  position: relative; 
+  z-index: 1; 
+  text-align: center; 
+  max-width: 600px; 
+  width: 90%;
+}
+
+.contact-container h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.email-btn { 
+  display: inline-block; 
+  background: white; 
+  color: #141414; 
+  padding: 12px 30px; 
+  border-radius: 8px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  margin-bottom: 20px; 
+  transition: transform 0.3s;
+}
+
+.email-btn:hover {
+  transform: scale(1.05);
+}
+
+.social-icon img {
+  width: 40px; 
+  height: auto;
+}
 /* THEME TOGGLE */
 .theme-toggle { 
     background: none; 
