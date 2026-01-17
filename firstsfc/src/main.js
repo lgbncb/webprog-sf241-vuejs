@@ -6,6 +6,7 @@ import PersonalProfile from './components/PersonalProfile.vue'
 
 const app = createApp(App)
 
+// Global Registration
 app.component('food-item', FoodItem)
 app.component('food-item2', FoodItem2)
 app.component('personal-profile', PersonalProfile)

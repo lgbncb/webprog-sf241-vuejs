@@ -1,5 +1,5 @@
 <template>
-  <div :class="theme" id="portfolio-root">
+  <div :class="theme" id="app-wrapper">
     <header class="navbar" :class="{ 'nav-solid': scrolled }">
       <a href="#top" class="logo">Lance's Portfolio</a>
       <nav>
@@ -39,12 +39,11 @@
         <div class="card">
           <img src="/Images/about.jpg.jpg" alt="Profile Picture">
           <div class="card-text">
-            <p>
-              Greetings! I am Lance Gabriel M. Buncab, but you can call me Gab. 
-              I am a passionate Computer Science student with strong interests in leadership, 
-              technology, and continuous learning. I currently serve as the External Relations 
-              Assistant Director for the Junior Philippine Computer Society, where I gained 
-              hands-on experience in event coordination, public relations, and professional networking.
+            <p> Greetings! I am Lance Gabriel M. Buncab, but you can call me Gab.
+                I am a passionate Computer Science student with strong interests in leadership,
+                technology, and continuous learning. I currently serve as the External Relations
+                Assistant Director for the Junior Philippine Computer Society, where I gained
+                hands-on experience in event coordination, public relations, and professional networking. 
             </p>
           </div>
         </div>
@@ -55,8 +54,7 @@
         <div class="card">
           <img src="/Images/education.jpeg" alt="Asia Pacific College">
           <div class="card-text">
-            <p>Currently, I am studying at Asia Pacific College as a 2nd Year BS Computer Science 
-               student specializing in Cybersecurity and Forensics.</p>
+            <p>Currently, I am studying at Asia Pacific College as a 2nd Year BS Computer Science student specializing in Cybersecurity and Forensics.</p>
           </div>
         </div>
       </section>
@@ -101,6 +99,10 @@
         </div>
       </section>
     </main>
+
+    <footer>
+      <p>© 2026 WEBPROG Midterm Project | Lance Buncab - SF241</p>
+    </footer>
   </div>
 </template>
 
@@ -114,21 +116,27 @@ export default {
       selectedImage: null,
       heroImages: ['/Images/Photo1.jpg'],
       galleryImages: [
-        '/Images/Photo2.jpg', '/Images/Photo3.jpg', '/Images/Photo4.jpg', 
-        '/Images/hobbies.jpg.jpg', '/Images/goals.jpg.jpg'
+        '/Images/hobbies.jpg.jpg',
+        '/Images/goals.jpg.jpg',
+        '/Images/education.jpeg',
+        '/Images/Photo2.jpg',
+        '/Images/Photo3.jpg'
       ]
     };
   },
   methods: {
     toggleTheme() {
       this.theme = this.theme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', this.theme);
     },
     handleScroll() {
       this.scrolled = window.scrollY > 50;
     },
-    openImage(img) { this.selectedImage = img; },
-    closeImage() { this.selectedImage = null; }
+    openImage(img) {
+      this.selectedImage = img;
+    },
+    closeImage() {
+      this.selectedImage = null;
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
@@ -141,9 +149,9 @@ export default {
 
 <style scoped>
 /* RESET & BASE */
-#portfolio-root { width: 100%; overflow-x: hidden; }
-.dark { background: #141414; color: white; }
-.light { background: #f4f4f4; color: #111; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Verdana, Arial, sans-serif; }
+.dark { background: #141414; color: white; min-height: 100vh; }
+.light { background: #f4f4f4; color: #111; min-height: 100vh; }
 
 /* NAVBAR */
 .navbar {
@@ -155,45 +163,86 @@ export default {
 .navbar.nav-solid { background: rgba(0, 0, 0, 0.95); }
 .logo { color: #E50914; font-size: 26px; font-weight: bold; text-decoration: none; }
 nav ul { display: flex; list-style: none; }
-nav ul li a { color: #e5e5e5; text-decoration: none; margin-left: 20px; font-size: 14px; transition: 0.3s; }
+nav ul li a { color: #e5e5e5; text-decoration: none; margin-left: 20px; font-size: 14px; transition: color 0.3s; }
 nav ul li a:hover { color: #E50914; }
 
 /* HERO */
 .hero { height: 100vh; background-size: cover; background-position: center; }
 .hero-overlay { height: 100%; background: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent); display: flex; align-items: center; padding: 0 50px; }
 .hero-content h1 { font-size: 60px; margin-bottom: 10px; color: white; }
+.hero-content p { font-size: 20px; color: #e5e5e5; }
+.hero-buttons { display: flex; gap: 15px; margin-top: 20px; }
+.hero-btn { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.play-btn { background: white; color: #141414; }
+.info-btn { background: rgba(255, 255, 255, 0.2); color: white; border: 2px solid white; }
 
-/* SECTIONS */
-.row { padding: 80px 50px; }
+/* CARD & SECTIONS */
+.row { padding: 120px 50px; opacity: 1; }
 .card { display: flex; background: #2f2f2f; border-radius: 6px; padding: 40px; gap: 30px; align-items: center; color: white; }
 .card img { width: 400px; height: 300px; object-fit: cover; border-radius: 4px; }
+.card-text p { font-size: 22px; line-height: 1.8; }
 
 /* SKILLS */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
 .skill-box { background: #2f2f2f; padding: 30px; border-radius: 6px; text-align: center; }
-.skill-icons img { width: 50px; margin: 10px; }
+.skill-icons img { width: 55px; margin: 10px; transition: 0.2s; }
+.skill-icons img:hover { transform: scale(1.2); }
 
-/* GALLERY */
-.gallery-scroll { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 10px; }
-.gallery-scroll img { height: 250px; border-radius: 6px; }
-
-/* MODAL */
+/* GALLERY & MODAL */
+.gallery-scroll { display: flex; overflow-x: auto; gap: 15px; }
+.gallery-scroll img { height: 300px; border-radius: 6px; transition: 0.3s; }
 .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; z-index: 2000; }
 .modal img { max-width: 90%; max-height: 90%; }
-.modal button { position: absolute; top: 20px; right: 30px; color: white; font-size: 30px; background: none; border: none; cursor: pointer; }
+.modal button { position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 30px; cursor: pointer; }
 
 /* CONTACT */
-.contact { position: relative; min-height: 400px; display: flex; justify-content: center; align-items: center; }
 .contact-video-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
-.contact-container { padding: 40px; background: rgba(0,0,0,0.7); border-radius: 12px; color: white; text-align: center; }
-.email-btn { display: inline-block; background: white; color: black; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold; }
+.contact-container { padding: 60px; background: rgba(0,0,0,0.6); border-radius: 12px; position: relative; z-index: 1; text-align: center; }
+.email-btn { display: inline-block; background: white; color: #141414; padding: 16px 40px; border-radius: 8px; font-weight: bold; text-decoration: none; margin-bottom: 20px; }
 
 /* THEME TOGGLE */
-.theme-toggle { background: none; border: none; font-size: 24px; cursor: pointer; margin-left: 20px; }
+.theme-toggle { 
+    background: none; 
+    border: none; 
+    font-size: 24px; 
+    cursor: pointer; 
+    margin-left: 20px; 
+}
 
-/* LIGHT MODE FIXES */
-.light .card { background: white; color: #111; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.light .skill-box { background: white; color: #111; }
-.light .navbar { background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent); }
-.light nav ul li a { color: #333; }
+/* FOOTER */
+footer { 
+    text-align: center; 
+    padding: 20px; 
+    color: #aaa; 
+    background: #0a0a0a; 
+}
+
+/* LIGHT MODE OVERRIDES */
+.light .card { 
+    background: white; 
+    color: #111; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.light .skill-box { 
+    background: white; 
+    color: #111; 
+}
+
+.light .navbar { 
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent); 
+}
+
+.light nav ul li a { 
+    color: #333; 
+}
+
+/* Ensure the wrapper handles the theme background correctly */
+#app-wrapper.light {
+    background-color: #f4f4f4;
+}
+
+#app-wrapper.dark {
+    background-color: #141414;
+}
 </style>
