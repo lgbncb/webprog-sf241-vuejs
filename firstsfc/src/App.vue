@@ -1,46 +1,21 @@
-<template>
-  <personal-profile />
+<script setup>
+import { ref, onMounted } from 'vue'
+import { supabase } from './lib/supabaseClient'
 
-  <div class="paboritos-container">
-    <h1 class="paboritos-title">MGA PABORITOS</h1>
-    <div class="food-items-flex">
-      <food-item />
-      <food-item2 />
-    </div>
-  </div>
-</template>
+const instruments = ref([])
 
-<script>
-export default {
-  name: 'App'
+async function getInstruments() {
+  const { data } = await supabase.from('instruments').select()
+  instruments.value = data
 }
+
+onMounted(() => {
+   getInstruments()
+})
 </script>
 
-<style>
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Styles for the Paboritos section */
-.paboritos-container {
-  padding: 50px;
-  background-color: #fff; 
-  text-align: center;
-}
-
-.paboritos-title {
-  font-family: 'Verdana', sans-serif;
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #111;
-}
-
-.food-items-flex {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-</style>
+<template>
+  <ul>
+    <li v-for="instrument in instruments" :key="instrument.id">{{ instrument.name }}</li>
+  </ul>
+</template>
